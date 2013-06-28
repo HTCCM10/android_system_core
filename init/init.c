@@ -649,12 +649,10 @@ static void import_kernel_nv(char *name, int for_emulator)
 
     if (!strcmp(name,"qemu")) {
         strlcpy(qemu, value, sizeof(qemu));
-#ifdef WANTS_EMMC_BOOT
     } else if (!strcmp(name,"androidboot.emmc")) {
         if (!strcmp(value,"true")) {
             emmc_boot = 1;
         }
-#endif
     } else if (!strcmp(name,BOARD_CHARGING_CMDLINE_NAME)) {
         strlcpy(battchg_pause, value, sizeof(battchg_pause));
     } else if (!strncmp(name, "androidboot.", 12) && name_len > 12) {
